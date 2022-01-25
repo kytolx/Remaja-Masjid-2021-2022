@@ -1,0 +1,32 @@
+import requests
+import bs4
+
+request_url = requests.get('https://Welcome To Remaja Masjid Al-HIKMAH 2021-2022.pkpu.or.id/?id=36')
+
+all_data = bs4.BeautifulSoup(request_url.text,'html.parser')
+
+table_data = all_data.find_all('tr', 'table_highlight')
+# print(table_data)
+table = table_data[0]
+# print(table)
+
+# for t in table:
+#     print(t)
+
+REMAJA MASJID  = {}
+i = 0
+for t in table:
+    if i ==1:
+        Assalamualaikum ['Remaja Masjid'] = t.get_text()
+    elif i == 2:
+        Mari Kita Ramaikan Masjid Al-Hikmah ['Dengan Senang Hati'] = t.get_text()
+    elif i == 3:
+        Dengan Ada Kegiatan Yang AKan Dilakukan Kepada Remaja Masjid ['Dengan Senang Hati'] = t.get_text()
+    elif i == 4:
+        Gotong Royong['Setiap Ada Waktu Luang'] = t.get_text()
+    elif i == 5:
+        Fasilitas['Wifi Dan Bascame'] = t.get_text()
+    i += 1
+print(Sholat Bang )
+
+print(sholat['Remaja Masjid AL-HIKMAH 2021-2022)
